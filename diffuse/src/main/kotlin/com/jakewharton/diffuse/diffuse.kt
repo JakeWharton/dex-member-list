@@ -46,6 +46,13 @@ import java.nio.file.FileSystems
 import kotlin.LazyThreadSafetyMode.NONE
 
 fun main(vararg args: String) {
+  val javaVersion = System.getProperty("java.version")
+  if (javaVersion == null || javaVersion.matches("^(1\\.|9|10).*$".toRegex())) {
+    println("*****************************************")
+    println("The minimum supported java version is 11.")
+    println("*****************************************")
+  }
+
   val defaultFs = FileSystems.getDefault()
   val systemOut = System.out
 
